@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
 
 import { ArticleGrid, Article } from './styles'
 
 const ArticleList = ({ articles }) => (
-  <Fragment>
+  <>
     <h2>Artikel</h2>
     <ArticleGrid>
       {articles.edges.map(({ node: article }) => {
@@ -12,9 +12,9 @@ const ArticleList = ({ articles }) => (
         const link = `/wiki/${section.slug}${subsection &&
           `/` + subsection.slug}/${slug}`
         return (
-          <Article key={title.title}>
+          <Article key={title}>
             <Link to={link}>
-              <h4>{title.title}</h4>
+              <h4>{title}</h4>
             </Link>
             <h6>Inhaltsverzeichnis</h6>
             <ul>
@@ -26,7 +26,7 @@ const ArticleList = ({ articles }) => (
         )
       })}
     </ArticleGrid>
-  </Fragment>
+  </>
 )
 
 export default ArticleList
